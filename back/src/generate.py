@@ -4,10 +4,7 @@ import os
 import typing
 
 CLI_MODE = os.getenv("CLI", False)
-if CLI_MODE:
-    TEMPLATES_DIR = "./build_templates"
-else:
-    TEMPLATES_DIR = "../build_templates"
+TEMPLATES_DIR = "./build_templates" if CLI_MODE else "../build_templates"
 
 
 def build_command(pkg_type: str, pkg_ver: str, df_path: str, py_ver: typing.Optional[str] = None, use_cache=True) -> tuple[str, str]:
